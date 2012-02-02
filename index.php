@@ -6,6 +6,7 @@ class ShopProduct
     private $producerFirstName;
     protected $price;
     private $discount = 0;
+    private $id = 0;
 
     public function __construct($title, $firstName, $mainName, $price)
     {
@@ -57,6 +58,16 @@ class ShopProduct
         $base .= "{$this->producerFirstName})";
 
         return $base;
+    }
+
+    public function setID($id)
+    {
+        $this->id = $id;
+    }
+
+    public static function getInstance($id, PDO $pdo)
+    {
+        $stmt = $pdo->prepare("select * from products where id=?");
     }
 }
 
