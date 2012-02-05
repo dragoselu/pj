@@ -1,8 +1,9 @@
 <?php
-class ShopProduct
+abstract class ShopProduct
 {
     const AVAILABLE = 0;
     const OUT_OF_STOCK = 1;
+
     private $title;
     private $producerMainName;
     private $producerFirstName;
@@ -161,25 +162,30 @@ class BookProduct extends ShopProduct
     }
 }
 
-class ShopProductWriter
+abstract class ShopProductWriter
 {
-    public $products = array();
+    protected $prducts = array();
 
     public function addProduct(ShopProduct $shopProduct)
     {
         $this->products[] = $shopProduct;
     }
 
+    abstract public function write();
+}
+
+class XmlProductWriter extends ShopProductWriter
+{
     public function write()
     {
-        $str = "";
+        $str = '<?xml version="1.0" encoding="UTF-8"?>'."\n";
+        $str .= "<products>\n";
         foreach($this->products as $shopProduct)
         {
-            $str .= "{$shopProduct->title}: ";
-            $str .= $shopProduct->getProducer();
-            $str .= " ({$shopProduct->getPrice()})\n";
+            $str .= "\t<product title=\"{$shopProduct->getTitle()}\">\n";
+            $str .= "\t\t<summary>\n";
+            $str .= "\t\t{$shopProduct->getSummaryLine()}\n";
         }
-        echo $str;
     }
 }
 ?>
