@@ -46,7 +46,7 @@ abstract class ShopProduct
 
     public function getPrice()
     {
-        return ($this-price - $this->discount);
+        return ($this->price - $this->discount);
     }
 
     public function getProducer()
