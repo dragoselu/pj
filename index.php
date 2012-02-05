@@ -1,4 +1,5 @@
 <?php
+include "shop.php";
 $dsn = "sqlite:products.sqlite";
 
 $pdo = new PDO($dsn, null, null);
