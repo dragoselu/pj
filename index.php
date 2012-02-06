@@ -6,6 +6,7 @@ $pdo = new PDO($dsn, null, null);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $obj = ShopProduct::getInstance(2, $pdo);
 
-$writer = new XmlProductWriter($obj);
+$writer = new XmlProductWriter();
+$writer->addProduct($obj);
 $writer->write();
 ?>
