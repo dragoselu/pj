@@ -164,7 +164,7 @@ class BookProduct extends ShopProduct
 
 abstract class ShopProductWriter
 {
-    protected $prducts = array();
+    protected $products = array();
 
     public function addProduct(ShopProduct $shopProduct)
     {
