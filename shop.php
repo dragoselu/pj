@@ -185,7 +185,24 @@ class XmlProductWriter extends ShopProductWriter
             $str .= "\t<product title=\"{$shopProduct->getTitle()}\">\n";
             $str .= "\t\t<summary>\n";
             $str .= "\t\t{$shopProduct->getSummaryLine()}\n";
+            $str .= "\t\t</summary>\n";
+            $str .= "\t</product>\n";
         }
+        $str .= "</products>\n";
+        echo $str;
+    }
+}
+
+class TextProductWriter extends ShopProductWriter
+{
+    public function write()
+    {
+        $str  = "PRODUCTS:\n";
+        foreach($this->products as $shopProduct)
+        {
+            $str .= $shopProduct->getSummaryLine()."\n";
+        }
+        echo $str;
     }
 }
 ?>
