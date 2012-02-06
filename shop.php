@@ -124,6 +124,11 @@ class CdProduct extends ShopProduct
         return $this->playLength;
     }
 
+    public function getTtitle()
+    {
+        parent::getTtitle();
+    }
+
     public function getSummaryLine()
     {
         $base  = parent::getSummaryLine();
