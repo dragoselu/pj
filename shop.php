@@ -39,7 +39,7 @@ abstract class ShopProduct
         return $this->discount;
     }
 
-    public function getTtitle()
+    public function getTitle()
     {
         return $this->title;
     }
@@ -122,11 +122,6 @@ class CdProduct extends ShopProduct
     public function getPlayLength()
     {
         return $this->playLength;
-    }
-
-    public function getTtitle()
-    {
-        parent::getTitle();
     }
 
     public function getSummaryLine()
