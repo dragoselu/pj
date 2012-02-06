@@ -126,7 +126,7 @@ class CdProduct extends ShopProduct
 
     public function getTtitle()
     {
-        parent::getTtitle();
+        parent::getTitle();
     }
 
     public function getSummaryLine()
